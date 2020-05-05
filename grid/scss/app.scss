@@ -1,0 +1,36 @@
+@import 'grid';
+.row {
+    display: block;
+    // Clearfix hack
+    &:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+// { size } - { # of columns out of 4 in a 4 column grid. }
+// ========================
+// 1: | ___ | ___ | ___ | ___ |
+// 2: | ___ ___ | ___ | ___ |
+// 3: | ___ ___ ___ | ___ |
+// 4: | ___ ___ ___ ___ |
+
+// Refactor to use a 12 column grid...
+@each $size in sm, md, lg {
+    // .sm-1, .sm-2, ..., .md-1, .md-2, ..., .lg-12
+    @for $i from 1 through 12 {
+        .#{$size}-#{$i} {
+            @include grid($size, $i);
+        }
+    }
+}
+article {
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: green;
+}
+aside {
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: blue;
+}

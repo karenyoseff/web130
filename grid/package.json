@@ -1,0 +1,16 @@
+{
+  "name": "karen-grid",
+  "version": "1.0.0",
+  "description": "Grid test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server"
+  },
+  "author": "Karen Garcia",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "http-server": "^0.12.1"
+  }
+}

@@ -1,0 +1,36 @@
+@import 'buttons';
+$a: blue;
+ 
+body{
+    background-color: $a;
+}
+
+a {
+    color: $a;
+}
+
+div{
+    color: yellow;
+    &:hover {
+        color: blue;
+    }
+}
+
+//Simple mixin demo
+
+@mixin fancy {
+    color: pink;
+    font-style: italic;
+    &:hover {
+        text-decoration: dashed;
+    }
+}
+
+h1.fancy {
+    @include fancy;
+}
+p.fancy {
+    @include fancy;
+    font-size: 18px;
+}
+
