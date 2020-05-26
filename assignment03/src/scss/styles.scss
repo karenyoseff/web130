@@ -1,0 +1,31 @@
+@import 'colors';
+@import 'nav';
+@import 'size';
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+
+body {
+    background-color: $color;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+}
+.mobile-only {
+    display: none;
+    @include size(sm){
+        display: block;
+    }
+}
+
+.tablet-only {
+    display: none;
+    @include size(md){
+        display: block;
+    }
+}
+
+.desktop-only {
+    display: none;
+    @include size(lg){
+        display: block;
+    }
+}

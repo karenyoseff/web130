@@ -12,8 +12,8 @@
     @include size(small) {
         color: $dark-grey;
         font-size: 14px;
-        }
     }
+}
 .medium {
     @include size(medium) {
         color: $dark-grey;
