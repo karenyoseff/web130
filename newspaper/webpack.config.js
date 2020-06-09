@@ -1,5 +1,8 @@
 const path = require('path')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const { postLogin } = require('./js/api')
+const express = require('express')
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -22,17 +25,22 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-    new ExtractTextWebpackPlugin({
-    filename: '[name].css',
-    allChunks: true
-    })
+        new ExtractTextWebpackPlugin({
+            filename: '[name].css',
+            allChunks: true
+        })
     ],
     devServer: {
-    contentBase: __dirname,
-    publicPath: '/dist/',
-    port: 8080,
-    host: '0.0.0.0',
-    hot: true,
-    disableHostCheck: true
+        contentBase: __dirname,
+        publicPath: '/dist/',
+        port: 8080,
+        host: '0.0.0.0',
+        hot: true,
+        disableHostCheck: true,
+        before: (app, server, compiler) => {
+            app.use(express.json())
+            app.post('/api/login', postLogin)
+        }
     }
+    
 }
