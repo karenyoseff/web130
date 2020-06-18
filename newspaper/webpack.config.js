@@ -1,6 +1,6 @@
 const path = require('path')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
-const { postLogin } = require('./js/api')
+const { postLogin, postArticle } = require('./js/api')
 const express = require('express')
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i, // .scss or .sass
+                test: /\.s[ac]ss$/i,   // .scss or .sass
                 loader: ExtractTextWebpackPlugin.extract([
                     'css-loader',
                     'sass-loader'
@@ -20,16 +20,16 @@ module.exports = {
             }
         ]
     },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
-    },
     plugins: [
         new ExtractTextWebpackPlugin({
             filename: '[name].css',
             allChunks: true
         })
     ],
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist')
+    },
     devServer: {
         contentBase: __dirname,
         publicPath: '/dist/',
@@ -40,7 +40,7 @@ module.exports = {
         before: (app, server, compiler) => {
             app.use(express.json())
             app.post('/api/login', postLogin)
+            app.post('/api/article', postArticle)
         }
     }
-    
 }
