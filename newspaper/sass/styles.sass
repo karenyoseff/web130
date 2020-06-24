@@ -1,17 +1,74 @@
-$primary: purple
-$dark: #333
+@import 'color'
+@import 'variables'
+@import 'font'
 @import '~bootstrap'
+
 
 header
     margin-top: 20px
     margin-bottom: 20px
 
 article
-    max-height: 300px
+    display: block
+    max-height: 500px
+    padding: 15px
+    hyphens: none
+    line-height: 22px
+    border: 3px solid white 
+
+.col
+    height: 100%
+    overflow: none
+.col.list 
+    background-color: $l-light
+    // margin: 3px
+    height: 400px
+
+article section 
+    font-family: $font2
+    text-align: justify
+    max-height: 25%
+    font-size: 15px
+    font-weight: 300
+    // margin: 0
     overflow: hidden
+
+
+h1 
+    color: $dark  
+h2 
+    text-align: center
+    font-size: 35px
+    color: $l-dark
+    font-weight: 400
+ 
+h3 
+    font-size: 25px
+    color: $l-dark
+    font-weight: 400
+
 
 .user
     display: block
 
 .auth-user
     display: none
+
+#logo 
+    width: 100px
+
+body
+    font-family: $font
+
+.article-link 
+    padding: 8px
+    display: inline-block
+    position: absolute
+    bottom: 1rem
+small
+    font-size: 10px
+
+// responsive
+
+
+

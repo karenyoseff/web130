@@ -29,21 +29,21 @@ export function getArticles(category) {
         // Print to console for debugging.
         console.log(articles);
 
-        let articleListHtml = '<div class="row">'
+        let articleListHtml = '<div class="row test">'
 
         articles.forEach((article, index) => {
-            if (index % 3 === 0) {
-                articleListHtml += '</div><div class="row">'
-            }
+            //if (index % 3 === 0) {
+            //    articleListHtml += '</div><div class="row">'
+            //}
             
             articleListHtml += `
-                <article class="col list">
+                <article class="col list col-sm-12 col-md-6 col-lg-4">
                     <h3>${article.title}</h3>
                     <small>Published: ${article.publishedAt}</small>
                     <section>
                         ${article.content.html}
                     </section>
-                    <a class="article-link" href="#Article_${article.id}">Read more...</a>
+                    <a class="article-link btn btn-primary btn-sm" href="#Article_${article.id}">Read more...</a>
                 </article>
             `
         })
@@ -88,7 +88,7 @@ export function getArticle(id) {
         const articleHtml = `
             <div class="row">
                 <article class="col">
-                    <h2>${article.title}</h3>
+                    <h2>${article.title}</h2>
                     <small>Published: ${article.publishedAt}</small>
                     <section>
                         ${article.content.html}
